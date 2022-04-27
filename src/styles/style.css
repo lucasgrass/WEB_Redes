@@ -1,0 +1,44 @@
+.flex-container {
+    border: 1px solid black;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.container-img {
+    border: 1px solid red;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-button {
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+}
+
+.container-exit {
+    border: 1px solid purple;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: aqua;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.button-exit {
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: underline;
+}
