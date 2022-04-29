@@ -2,7 +2,7 @@ function Home() {
   return (
     <div className="flex-container">
       <div className="container-img">
-        <h1>imagem</h1>
+        {/* <img src={"/montanha.png"}/> */}
       </div>
       <div className="container-button">
         <button className="button" type="button">Entrada na Gondula</button>

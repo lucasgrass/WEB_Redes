@@ -1,44 +1,57 @@
+* {
+    background-color: #002C58;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
 .flex-container {
-    border: 1px solid black;
     display: flex;
     flex: 1;
     flex-direction: column;
+    background-color: #002C58;
 }
 
 .container-img {
-    border: 1px solid red;
-    height: 200px;
+    height: 320px;
+    width: 320px;
     display: flex;
     justify-content: center;
+    margin-top: 8%;
 }
 
 .container-button {
-    border: 1px solid blue;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .container-exit {
-    border: 1px solid purple;
     display: flex;
     justify-content: center;
 }
 
 .button {
-    background-color: aqua;
-    color: black;
+    background-color: #F6796A;
+    color: white;
     cursor: pointer;
     font-size: 20px;
-    margin-top: 20px;
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
+    width: 260px;
+    height: 61px;
+    border-radius: 30px;
 }
 
 .button-exit {
-    color: black;
+    color: #F6796A;
     font-size: 20px;
+    line-height: 24px;
     cursor: pointer;
-    margin-top: 20px;
-    text-decoration: underline;
+    margin-top: 40px;
+}
+
+.container-button :hover{
+    background-color: #f65b6a;
+}
+
+.container-exit :hover{
+    color: #fff;
 }
