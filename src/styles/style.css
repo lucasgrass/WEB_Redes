@@ -8,7 +8,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    background-color: #002C58;
+    border: 3px solid greenyellow;
 }
 
 .container-img {
@@ -54,4 +54,33 @@
 
 .container-exit :hover{
     color: #fff;
+}
+
+.container-header {
+    border: 1px solid red;
+    display: flex;
+}
+
+#title-a {
+    border: 1px solid black;
+    color: #fff;
+}
+
+#button-return-menu {
+    border: 1px solid purple;
+    color: #fff;
+}
+
+.button-move {
+    border: 1px solid green;
+}
+
+#button-move-stock {
+    color: #fff;
+    background-color: #F6796A;
+    width: 261px;
+    height: 40px;
+    border-radius: 16px;
+    font-size: 16px;
+    line-height: 19px;
 }
