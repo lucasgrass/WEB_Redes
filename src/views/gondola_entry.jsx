@@ -2,7 +2,7 @@ function Gondola_Entry() {
     return (
       <div className="flex-container">
           <div className="container-header">
-                <h1 id="title-a">PRODUTOS</h1>
+                <p id="title-a">PRODUTOS</p>
                 <span>
                     <button id="button-return-menu">Voltar ao Menu</button>
                 </span>

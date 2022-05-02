@@ -59,16 +59,26 @@
 .container-header {
     border: 1px solid red;
     display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #title-a {
     border: 1px solid black;
     color: #fff;
+    font-size: 60px;
+    font-weight: bold;
 }
 
 #button-return-menu {
     border: 1px solid purple;
     color: #fff;
+    position: absolute;
+    right: 10%;
+    margin-top: 1%;
+    font-size: 22px;
 }
 
 .button-move {
