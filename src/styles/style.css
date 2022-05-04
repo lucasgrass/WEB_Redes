@@ -1,131 +1,151 @@
 * {
-    background-color: #002C58;
-    font-family: 'Inter';
-    font-style: normal;
+	background-color: #002c58;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: "Roboto", sans-serif;
 }
 
 .flex-container {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    border: 3px solid greenyellow;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
 }
 
 .container-img {
-    height: 320px;
-    width: 320px;
-    display: flex;
-    justify-content: center;
-    margin-top: 8%;
+	height: 320px;
+	width: 320px;
+	display: flex;
+	justify-content: center;
+	margin-top: 8%;
 }
 
 .container-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
 }
 
 .container-exit {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .button {
-    background-color: #F6796A;
-    color: white;
-    cursor: pointer;
-    font-size: 20px;
-    width: 260px;
-    height: 61px;
-    border-radius: 30px;
+	background-color: #f6796a;
+	color: white;
+	cursor: pointer;
+	font-size: 20px;
+	width: 260px;
+	height: 61px;
+	border-radius: 30px;
 }
 
 .button-exit {
-    color: #F6796A;
-    font-size: 20px;
-    line-height: 24px;
-    cursor: pointer;
-    margin-top: 40px;
+	color: #f6796a;
+	font-size: 20px;
+	line-height: 24px;
+	cursor: pointer;
+	margin-top: 40px;
 }
 
-.container-button :hover{
-    background-color: #f65b6a;
+.container-button :hover {
+	background-color: #f65b6a;
 }
 
-.container-exit :hover{
-    color: #fff;
+.container-exit :hover {
+	color: #fff;
 }
 
 .container-header {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: row;
-    margin-top: 5%;
-    margin-left: 15%;
-    margin-right: 15%;
+	border: 1px solid red;
+	display: flex;
+	flex-direction: row;
+	margin-top: 5%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
-#title-a {
-    border: 1px solid black;
-    color: #fff;
-    font-size: 60px;
-    font-weight: bold;
+.title-a {
+	border: 1px solid black;
+	color: #fff;
+	font-size: 60px;
+	font-weight: bold;
 }
 
-#button-return-menu {
-    border: 1px solid purple;
-    color: #fff;
-    position: absolute;
-    right: 15%;
-    margin-top: 1%;
-    font-size: 22px;
+.button-return-menu {
+	border: 1px solid purple;
+	color: #fff;
+	position: absolute;
+	right: 15%;
+	margin-top: 1%;
+	font-size: 22px;
+	cursor: pointer;
 }
 
 .button-move {
-    border: 1px solid green;
-    display: flex;
-    display: flex;
-    flex-direction: row;
-    margin-top: 5%;
-    margin-left: 17.5%;
-    margin-right: 17.5%;
+	border: 1px solid green;
+	display: flex;
+	display: flex;
+	flex-direction: row;
+	margin-top: 5%;
+	margin-left: 17.5%;
+	margin-right: 17.5%;
 }
 
-#button-move-stock {
-    color: #fff;
-    background-color: #F6796A;
-    width: 261px;
-    height: 40px;
-    border-radius: 16px;
-    font-size: 16px;
-    line-height: 19px;
-    cursor: pointer;
+.button-move :hover {
+	background-color: #f65b6a;
 }
 
-#button-move-stock :hover {
-    background-color: #f65b6a;
+.button-gondola {
+	color: #fff;
+	background-color: #f6796a;
+	width: 261px;
+	height: 40px;
+	border-radius: 16px;
+	font-size: 20px;
+	line-height: 19px;
+	cursor: pointer;
+}
+
+.button-gondola :hover {
+	background-color: #f65b6a;
 }
 
 .container-title-list {
-    border: 1px solid yellow;
-    display: flex;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    margin-top: 2%;
-    margin-left: 17.5%;
-    margin-right: 17.5%;
-    justify-content: space-between;
-    font-size: 24px;
+	border: 1px solid yellow;
+	display: flex;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	margin-top: 2%;
+	margin-left: 17.5%;
+	margin-right: 17.5%;
+	justify-content: space-between;
+	font-size: 24px;
 }
 
 .container-title-list p {
-    margin-left: 5px;
+	margin-left: 5px;
 }
 
 .container-title-list input {
-    width: 30px;
-    height: 30px;
-    /* accent-color: #002C58; */
+	width: 30px;
+	height: 30px;
+	/* accent-color: #002C58; */
 }
 
+.container-list-products {
+	border: 1px solid red;
+	display: flex;
+	flex: 1;
+	margin-top: 2%;
+	margin-left: 17.5%;
+	margin-right: 17.5%;
+}
+
+.container-products {
+	background-color: black;
+	color: white;
+	font-size: 20px;
+}

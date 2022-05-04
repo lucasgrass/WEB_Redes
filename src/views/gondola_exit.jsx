@@ -1,8 +1,8 @@
-function Gondola_Entry() {
+function Gondola_Exit() {
 	return (
 		<div className="flex-container">
 			<div className="container-header">
-				<p className="title-a">ENTRADA GONDOLA</p>
+				<p className="title-a">SAÍDA GONDOLA</p>
 				<span>
 					<button className="button-return-menu" type="button">
 						Voltar ao Menu
@@ -11,26 +11,18 @@ function Gondola_Entry() {
 			</div>
 			<div className="button-move">
 				<button className="button-gondola" type="button">
-					Mover para a Gondula
+					Retirar da Gondola
 				</button>
 			</div>
 			<div>
 				<span className="container-title-list">
 					<p>Nome</p>
-					<p>Em estoque</p>
+					<p>Disponível em Gondola</p>
 					<p>Quantidade</p>
-				</span>
-			</div>
-			<div className="container-list-products">
-				<span className="container-products">
-					<p>lalas</p>
-					<p>teste</p>
-					<p>aaaaa</p>
-					<p>fudeu</p>
 				</span>
 			</div>
 		</div>
 	);
 }
 
-export default Gondola_Entry;
+export default Gondola_Exit;
