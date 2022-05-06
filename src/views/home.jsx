@@ -5,11 +5,6 @@ function Home() {
 		<div className="flex-container">
 			<div className="container-img">{/* <img src={"/montanha.png"}/> */}</div>
 			<div className="container-button">
-				{/* <form action="https://www.google.com/">
-					<button className="button" type="submit">
-						Entrada na Gondula
-					</button>
-				</form> */}
 				<Link to="/gondola_entry">
 					<button className="button" type="submit">
 						Entrada na Gondula
@@ -24,10 +19,14 @@ function Home() {
 				</Link>
 			</div>
 			<div className="container-button">
-				<button className="button">Consultar Gondula</button>
+				<Link to="/gondola_consult">
+					<button className="button">Consultar Gondula</button>
+				</Link>
 			</div>
 			<div className="container-exit">
-				<button className="button-exit">Sair</button>
+				<Link to="">
+					<button className="button-exit">Sair</button>
+				</Link>
 			</div>
 		</div>
 	);

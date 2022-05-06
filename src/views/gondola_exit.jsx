@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
+
 function Gondola_Exit() {
 	return (
 		<div className="flex-container">
 			<div className="container-header">
 				<p className="title-a">SAÍDA GONDOLA</p>
 				<span>
-					<button className="button-return-menu" type="button">
-						Voltar ao Menu
-					</button>
+					<Link to="/home">
+						<button className="button-return-menu" type="button">
+							Voltar ao Menu
+						</button>
+					</Link>
 				</span>
 			</div>
 			<div className="button-move">

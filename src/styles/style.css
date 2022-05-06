@@ -10,6 +10,7 @@
 	display: flex;
 	flex: 1;
 	flex-direction: column;
+	height: 100vh;
 }
 
 .container-img {
@@ -17,7 +18,7 @@
 	width: 320px;
 	display: flex;
 	justify-content: center;
-	margin-top: 8%;
+	margin-top: 6%;
 }
 
 .container-button {
@@ -51,6 +52,7 @@
 
 .container-button :hover {
 	background-color: #f65b6a;
+	border-radius: 30px;
 }
 
 .container-exit :hover {
@@ -94,6 +96,7 @@
 }
 
 .button-move :hover {
+	border-radius: 16px;
 	background-color: #f65b6a;
 }
 
