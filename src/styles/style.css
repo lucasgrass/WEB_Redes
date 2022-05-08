@@ -13,12 +13,11 @@
 	height: 100vh;
 }
 
-.container-img {
-	height: 320px;
-	width: 320px;
+.container-father {
 	display: flex;
-	justify-content: center;
-	margin-top: 6%;
+	flex: 1;
+	flex-direction: column;
+	margin-top: 17.5%;
 }
 
 .container-button {
@@ -60,7 +59,6 @@
 }
 
 .container-header {
-	border: 1px solid red;
 	display: flex;
 	flex-direction: row;
 	margin-top: 5%;
@@ -69,15 +67,13 @@
 }
 
 .title-a {
-	border: 1px solid black;
 	color: #fff;
 	font-size: 60px;
 	font-weight: bold;
 }
 
 .button-return-menu {
-	border: 1px solid purple;
-	color: #fff;
+	color: white;
 	position: absolute;
 	right: 15%;
 	margin-top: 1%;
@@ -85,8 +81,11 @@
 	cursor: pointer;
 }
 
+.container-button-return-menu :hover {
+	color: #f65b6a;
+}
+
 .button-move {
-	border: 1px solid green;
 	display: flex;
 	display: flex;
 	flex-direction: row;
@@ -116,10 +115,8 @@
 }
 
 .container-title-list {
-	border: 1px solid yellow;
 	display: flex;
 	color: white;
-	display: flex;
 	flex-direction: row;
 	margin-top: 2%;
 	margin-left: 17.5%;
@@ -138,17 +135,68 @@
 	/* accent-color: #002C58; */
 }
 
-.container-list-products {
-	border: 1px solid red;
-	display: flex;
+.container-father-list-products {
 	flex: 1;
 	margin-top: 2%;
 	margin-left: 17.5%;
 	margin-right: 17.5%;
+	background-color: white;
+	border-radius: 16px;
 }
 
-.container-products {
-	background-color: black;
-	color: white;
-	font-size: 20px;
+.margins {
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+}
+
+.table-father {
+	font-size: 28px;
+	background-color: white;
+}
+
+.table-name {
+	font-size: 28px;
+	color: black;
+	background-color: white;
+	width: 50%;
+}
+
+.table-quantity {
+	font-size: 28px;
+	color: black;
+	width: 50%;
+	background-color: white;
+	border: none;
+}
+
+.input-number {
+	border: 2px solid black;
+	border-radius: 10px;
+	background-color: white;
+	width: 75px;
+	height: 30px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.table-quantity-1 {
+	font-size: 28px;
+	color: black;
+	width: 500px;
+	background-color: white;
+	text-align: right;
+}
+
+.table-input {
+	background-color: white;
+}
+
+.line {
+	color: #002c58;
+	display: block;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1.5px;
 }
