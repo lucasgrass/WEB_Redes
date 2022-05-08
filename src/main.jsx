@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/style.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./views/home";
 import Gondola_Entry from "./views/gondola_entry";
