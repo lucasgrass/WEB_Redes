@@ -36,20 +36,20 @@ const Gondola_Exit = () => {
 					<table className="table-father">
 						<tbody>
 							{products.map((product) => (
-								<>
-									<tr key={product.toString()}>
-										<td className="table-name">{product.name}</td>
-										<td className="table-quantity">{product.quantity}</td>
-										<td className="table-input">
-											<input
-												className="input-number"
-												type="number"
-												maxLength={3}
-												min="0"
-											/>
-										</td>
-									</tr>
-								</>
+								<tr key={product.id}>
+									<td className="table-name">{product.name}</td>
+									<td className="table-quantity">{product.quantity}</td>
+									<td className="table-input">
+										<input
+											id={product.id}
+											className="input-number"
+											name="quantity"
+											type="number"
+											maxLength={3}
+											min="0"
+										/>
+									</td>
+								</tr>
 							))}
 						</tbody>
 					</table>

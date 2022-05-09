@@ -4,11 +4,7 @@ import stock from "../mock-stock.json";
 
 const Gondola_Entry = () => {
 	const [products, setProducts] = useState(stock);
-	const [addProductStock, setAddProductStock] = useState({
-		id: "",
-		name: "",
-		quantity: "",
-	});
+	const [addProductStock, setAddProductStock] = useState();
 
 	const getQuantity = (event) => {
 		event.preventDefault();
@@ -16,34 +12,25 @@ const Gondola_Entry = () => {
 		const id = event.target.getAttribute("id");
 		const quantity = event.target.value;
 
-		console.log(addProductStock);
-
 		const remove = { ...addProductStock };
 		remove[id] = quantity;
-
-		console.log(remove);
 
 		setAddProductStock(remove);
 	};
 
 	const addQuantity = (event) => {
-		event.prevent.Default();
+		event.preventDefault();
 
-		const newQuantity = {
-			id: setAddProductStock.id,
-			name: setAddProductStock.name,
-			quantity: products[id].quantity - setAddProductStock.quantity,
-		};
+		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+		const teste = Object.keys(addProductStock).map((code) => ({
+			prod_id: code,
+			prod_qnt: addProductStock[code],
+		}));
+		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
 
-		const newStock = products.find((product) => product.id == newQuantity.id);
-
-		newStock.quantity = newQuantity.quantity;
-
-		const aux = newStock.id;
-
-		setProducts[aux] = newStock;
+		console.log(JSON.stringify(teste, null, 4));
 	};
-	//window.location.reload();
+
 	return (
 		<div className="flex-container">
 			<div className="container-header">
@@ -59,7 +46,7 @@ const Gondola_Entry = () => {
 				</span>
 			</div>
 			<div className="button-move">
-				<button className="button-gondola" type="submit" onSubmit={addQuantity}>
+				<button className="button-gondola" onClick={addQuantity}>
 					Mover para a Gondula
 				</button>
 			</div>
@@ -75,16 +62,18 @@ const Gondola_Entry = () => {
 					<table className="table-father">
 						<tbody>
 							{products.map((product) => (
-								<tr key={product.toString()}>
+								<tr key={product.id}>
 									<td className="table-name">{product.name}</td>
 									<td className="table-quantity">{product.quantity}</td>
 									<td className="table-input">
 										<input
+											id={product.id}
 											className="input-number"
 											name="quantity"
 											type="number"
 											maxLength={3}
 											min="0"
+											placeholder="0"
 											onChange={getQuantity}
 										/>
 									</td>
