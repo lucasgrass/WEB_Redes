@@ -30,12 +30,10 @@ const Gondola_Consult = () => {
 					<table className="table-father">
 						<tbody>
 							{products.map((product) => (
-								<>
-									<tr key={product.id}>
-										<td className="table-name">{product.name}</td>
-										<td className="table-quantity-1">{product.quantity}</td>
-									</tr>
-								</>
+								<tr key={product.id}>
+									<td className="table-name">{product.name}</td>
+									<td className="table-quantity-1">{product.quantity}</td>
+								</tr>
 							))}
 						</tbody>
 					</table>

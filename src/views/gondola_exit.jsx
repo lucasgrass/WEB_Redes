@@ -3,7 +3,33 @@ import React, { useState } from "react";
 import gondola from "../mock-gondola.json";
 
 const Gondola_Exit = () => {
-	const [products, setProduct] = useState(gondola);
+	const [products, setProducts] = useState(gondola);
+	const [addProductGondola, setAddProductGondola] = useState();
+
+	const getQuantity = (event) => {
+		event.preventDefault();
+
+		const id = event.target.getAttribute("id");
+		const quantity = event.target.value;
+
+		const remove = { ...addProductGondola };
+		remove[id] = quantity;
+
+		setAddProductGondola(remove);
+	};
+
+	const addQuantity = (event) => {
+		event.preventDefault();
+
+		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+		const teste = Object.keys(addProductGondola).map((code) => ({
+			prod_id: code,
+			prod_qnt: addProductGondola[code],
+		}));
+		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+
+		console.log(JSON.stringify(teste, null, 4));
+	};
 
 	return (
 		<div className="flex-container">
@@ -20,7 +46,7 @@ const Gondola_Exit = () => {
 				</span>
 			</div>
 			<div className="button-move">
-				<button className="button-gondola" type="button">
+				<button className="button-gondola" onClick={addQuantity}>
 					Retirar da Gondola
 				</button>
 			</div>
@@ -47,6 +73,8 @@ const Gondola_Exit = () => {
 											type="number"
 											maxLength={3}
 											min="0"
+											placeholder="0"
+											onChange={getQuantity}
 										/>
 									</td>
 								</tr>

@@ -22,13 +22,13 @@ const Gondola_Entry = () => {
 		event.preventDefault();
 
 		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
-		const teste = Object.keys(addProductStock).map((code) => ({
+		const json = Object.keys(addProductStock).map((code) => ({
 			prod_id: code,
 			prod_qnt: addProductStock[code],
 		}));
 		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
 
-		console.log(JSON.stringify(teste, null, 4));
+		console.log(JSON.stringify(json, null, 4));
 	};
 
 	return (
