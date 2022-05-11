@@ -28,5 +28,15 @@
 		"id": 6,
 		"name": "Carne",
 		"quantity": 5
+	},
+	{
+		"id": 7,
+		"name": "Queijo",
+		"quantity": 13
+	},
+	{
+		"id": 8,
+		"name": "Joelho",
+		"quantity": 2
 	}
 ]

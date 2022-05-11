@@ -23,11 +23,11 @@ const Gondola_Entry = () => {
 
 		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
 		const json = Object.keys(addProductStock).map((code) => ({
-			prod_id: code,
-			prod_qnt: addProductStock[code],
+			prod_id: parseInt(code),
+			prod_qnt: parseInt(addProductStock[code]),
 		}));
 		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
-
+		console.log(json);
 		console.log(JSON.stringify(json, null, 4));
 	};
 
