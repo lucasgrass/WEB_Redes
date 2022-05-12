@@ -2,39 +2,67 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import gondola from "../mock-gondola.json";
 
+// var aux = false;
+var flag = false;
+
 const Gondola_Exit = () => {
 	const [products, setProducts] = useState(gondola);
-	const [addProductGondola, setAddProductGondola] = useState();
+	const [addProductStock, setAddProductStock] = useState();
 
 	const getQuantity = (event) => {
 		event.preventDefault();
 
 		const id = event.target.getAttribute("id");
 		const quantity = event.target.value;
+		// var bool = quantity.includes(".");
+		// var bool_aux = quantity.includes(",");
 
-		const remove = { ...addProductGondola };
-		remove[id] = quantity;
+		// if (bool == false && bool_aux == false) {
+		// 	const remove = { ...addProductStock };
+		// 	remove[id] = quantity;
 
-		setAddProductGondola(remove);
+		setAddProductStock(remove);
+		// } else {
+		// 	aux = true;
+		// }
 	};
 
 	const addQuantity = (event) => {
 		event.preventDefault();
 
-		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
-		const teste = Object.keys(addProductGondola).map((code) => ({
-			prod_id: code,
-			prod_qnt: addProductGondola[code],
-		}));
-		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+		if (addProductStock == undefined) {
+			alert(
+				"Algum produto deve ter sua quantidade modificada para mover sair da Gondola."
+			);
+		} else {
+			Object.keys(addProductStock).map((code) => {
+				let aux_verify = products.find((x) => x.id == code);
 
-		console.log(JSON.stringify(teste, null, 4));
+				if (addProductStock[code] > aux_verify.quantity) {
+					alert("Produtos com quantidade insuficientes! Tente novamente.");
+					flag = true;
+					window.location.href = "http://localhost:3000/home";
+				}
+			});
+
+			if (!flag) {
+				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+				const json = Object.keys(addProductStock).map((code) => ({
+					prod_id: parseInt(code),
+					prod_qnt: parseInt(addProductStock[code]),
+				}));
+				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+				const json_format = JSON.stringify(json, null, 4);
+				alert("OS PRODUTOS FORAM RETIRADOS COM SUCESSO!");
+				window.location.href = "http://localhost:3000/home";
+			}
+		}
 	};
 
 	return (
 		<div className="flex-container">
 			<div className="container-header">
-				<p className="title-a">SAÍDA GONDOLA</p>
+				<p className="title-a">CAIXA</p>
 				<span>
 					<Link to="/home">
 						<div className="container-button-return-menu">
@@ -45,6 +73,7 @@ const Gondola_Exit = () => {
 					</Link>
 				</span>
 			</div>
+
 			<div className="button-move">
 				<button className="button-gondola" onClick={addQuantity}>
 					Retirar da Gondola

@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import stock from "../mock-stock.json";
 
+// var aux = false;
+var flag = false;
+
 const Gondola_Entry = () => {
 	const [products, setProducts] = useState(stock);
 	const [addProductStock, setAddProductStock] = useState();
@@ -11,24 +14,49 @@ const Gondola_Entry = () => {
 
 		const id = event.target.getAttribute("id");
 		const quantity = event.target.value;
+		// var bool = quantity.includes(".");
+		// var bool_aux = quantity.includes(",");
 
+		// if (bool == false && bool_aux == false) {
 		const remove = { ...addProductStock };
 		remove[id] = quantity;
 
 		setAddProductStock(remove);
+		// } else {
+		// 	aux = true;
+		// }
 	};
 
 	const addQuantity = (event) => {
 		event.preventDefault();
 
-		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
-		const json = Object.keys(addProductStock).map((code) => ({
-			prod_id: parseInt(code),
-			prod_qnt: parseInt(addProductStock[code]),
-		}));
-		// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
-		console.log(json);
-		console.log(JSON.stringify(json, null, 4));
+		if (addProductStock == undefined) {
+			alert(
+				"Algum produto deve ter sua quantidade modificada para mover para a Gondula."
+			);
+		} else {
+			Object.keys(addProductStock).map((code) => {
+				let aux_verify = products.find((x) => x.id == code);
+
+				if (addProductStock[code] > aux_verify.quantity) {
+					alert("Produtos com quantidade insuficientes! Tente novamente.");
+					flag = true;
+					window.location.href = "http://localhost:3000/home";
+				}
+			});
+
+			if (!flag) {
+				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+				const json = Object.keys(addProductStock).map((code) => ({
+					prod_id: parseInt(code),
+					prod_qnt: parseInt(addProductStock[code]),
+				}));
+				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
+				const json_format = JSON.stringify(json, null, 4);
+				alert("OS PRODUTOS FORAM ENVIADOS COM SUCESSO!");
+				window.location.href = "http://localhost:3000/home";
+			}
+		}
 	};
 
 	return (
@@ -36,17 +64,17 @@ const Gondola_Entry = () => {
 			<div className="container-header">
 				<p className="title-a">ENTRADA GONDOLA</p>
 				<span>
-					<Link to="/home">
-						<div className="container-button-return-menu">
+					<div className="container-button-return-menu">
+						<Link to="/home">
 							<button className="button-return-menu" type="submit">
 								Voltar ao Menu
 							</button>
-						</div>
-					</Link>
+						</Link>
+					</div>
 				</span>
 			</div>
 			<div className="button-move">
-				<button className="button-gondola" onClick={addQuantity}>
+				<button className="button-gondola" type="submit" onClick={addQuantity}>
 					Mover para a Gondula
 				</button>
 			</div>
@@ -71,7 +99,6 @@ const Gondola_Entry = () => {
 											className="input-number"
 											name="quantity"
 											type="number"
-											maxLength={3}
 											min="0"
 											placeholder="0"
 											onChange={getQuantity}
