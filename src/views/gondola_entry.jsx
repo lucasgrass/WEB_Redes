@@ -37,7 +37,7 @@ const Gondola_Entry = () => {
 		setAddProductStock(remove);
 	};
 
-	const addQuantity = (event) => {
+	const addQuantity = async (event) => {
 		event.preventDefault();
 
 		if (addProductStock == undefined) {
@@ -68,11 +68,11 @@ const Gondola_Entry = () => {
 				dict["items"] = json;
 				const json_format = JSON.stringify(dict, null, 4);
 
-				// try {
-				// 	const response = await
-				// } catch (error) {
-					
-				// }
+				try {
+					const response = await api.post('insert_shelf', json_format)
+				} catch (error) {
+					console.log(`Error: ${error.message}`)
+				}
 			
 				alert("OS PRODUTOS FORAM ENVIADOS COM SUCESSO!");
 				window.location.href = "http://localhost:3000/home";
