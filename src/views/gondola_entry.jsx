@@ -9,14 +9,14 @@ const Gondola_Entry = () => {
 	const [products, setProducts] = useState(stock);
 	const [addProductStock, setAddProductStock] = useState();
 
-	// const teste = async () => {
-	// 	try {
-	// 		const response = await fetchApi.get('/int_stock');
-	// 		return response
-	// 	} catch (error) {
+	const teste = async () => {
+		try {
+			const response = await fetchApi.get('/int_stock');
+			return response
+		} catch (error) {
 
-	// 	}
-	// }
+		}
+	}
 
 	const getQuantity = (event) => {
 		event.preventDefault();
