@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import stock from "../mock-stock.json";
-import { fetchApi } from "../api/axios";
+// import { fetchApi } from "../api/axios";
+import api from '../api/axios'
 
 var flag = false;
 
@@ -9,14 +10,20 @@ const Gondola_Entry = () => {
 	const [products, setProducts] = useState(stock);
 	const [addProductStock, setAddProductStock] = useState();
 
-	const teste = async () => {
-		try {
-			const response = await fetchApi.get('/int_stock');
-			return response
-		} catch (error) {
-
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await api.get('/int_stock')
+				setProducts(response.data.Products);
+			} catch (error) {
+				console.log(error.response.data)
+				console.log(error.response.status)
+				console.log(error.response.headers)
+			}
 		}
-	}
+
+		fetchData();
+	},[])
 
 	const getQuantity = (event) => {
 		event.preventDefault();
@@ -60,7 +67,13 @@ const Gondola_Entry = () => {
 				var dict = {};
 				dict["items"] = json;
 				const json_format = JSON.stringify(dict, null, 4);
-				console.log(json_format);
+
+				// try {
+				// 	const response = await
+				// } catch (error) {
+					
+				// }
+			
 				alert("OS PRODUTOS FORAM ENVIADOS COM SUCESSO!");
 				window.location.href = "http://localhost:3000/home";
 			}
