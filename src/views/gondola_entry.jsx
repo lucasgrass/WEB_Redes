@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import stock from "../mock-stock.json";
-import fetchApi from "../api/axios";
+import { fetchApi } from "../api/axios";
 
 var flag = false;
 
@@ -14,10 +14,9 @@ const Gondola_Entry = () => {
 	// 		const response = await fetchApi.get('/int_stock');
 	// 		return response
 	// 	} catch (error) {
-			
+
 	// 	}
 	// }
-
 
 	const getQuantity = (event) => {
 		event.preventDefault();

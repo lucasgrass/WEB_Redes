@@ -1,0 +1,22 @@
+[
+	{
+		"prod_id": 1,
+		"prod_cat_id": 3,
+		"prod_qnt": 12,
+		"prod_fab_date": "10/11/22",
+		"prod_val_date": "10/01/22",
+		"prod_batch": "A1B2C3",
+		"prod_origin": "Divinopolis",
+		"request_type": 101
+	},
+	{
+		"prod_id": 2,
+		"prod_cat_id": 4,
+		"prod_qnt": 20,
+		"prod_fab_date": "10/11/22",
+		"prod_val_date": "10/01/22",
+		"prod_batch": "A1",
+		"prod_origin": "AAAAAAA",
+		"request_type": 101
+	}
+]
