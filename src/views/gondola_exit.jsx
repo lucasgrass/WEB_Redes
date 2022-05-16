@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import gondola from "../mock-gondola.json";
 
-// var aux = false;
 var flag = false;
 
 const Gondola_Exit = () => {
@@ -14,17 +13,11 @@ const Gondola_Exit = () => {
 
 		const id = event.target.getAttribute("id");
 		const quantity = event.target.value;
-		// var bool = quantity.includes(".");
-		// var bool_aux = quantity.includes(",");
 
-		// if (bool == false && bool_aux == false) {
-		// 	const remove = { ...addProductStock };
-		// 	remove[id] = quantity;
+		const remove = { ...addProductStock };
+		remove[id] = quantity;
 
 		setAddProductStock(remove);
-		// } else {
-		// 	aux = true;
-		// }
 	};
 
 	const addQuantity = (event) => {
@@ -52,7 +45,10 @@ const Gondola_Exit = () => {
 					prod_qnt: parseInt(addProductStock[code]),
 				}));
 				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
-				const json_format = JSON.stringify(json, null, 4);
+				var dict = {};
+				dict["items"] = json;
+				const json_format = JSON.stringify(dict, null, 4);
+				console.log(json_format);
 				alert("OS PRODUTOS FORAM RETIRADOS COM SUCESSO!");
 				window.location.href = "http://localhost:3000/home";
 			}
