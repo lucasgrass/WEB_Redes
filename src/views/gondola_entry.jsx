@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import stock from "../mock-stock.json";
 // import { fetchApi } from "../api/axios";
-import api from '../api/axios'
+import api from "../api/axios";
 
 var flag = false;
 
@@ -13,22 +13,22 @@ const Gondola_Entry = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await api.get('/int_stock')
+				const response = await api.get("/int_stock");
 				setProducts(response.data.Products);
 			} catch (error) {
-				console.log(error.response.data)
-				console.log(error.response.status)
-				console.log(error.response.headers)
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
 			}
-		}
+		};
 
 		fetchData();
-	},[])
+	}, []);
 
 	const getQuantity = (event) => {
 		event.preventDefault();
 
-		const id = event.target.getAttribute("id");
+		const id = event.target.getAttribute("prod_id");
 		const quantity = event.target.value;
 
 		const remove = { ...addProductStock };
@@ -46,11 +46,12 @@ const Gondola_Entry = () => {
 			);
 		} else {
 			Object.keys(addProductStock).map((code) => {
-				let aux_verify = products.find((x) => x.id == code);
+				let aux_verify = products.find((x) => x.prod_id == code);
 
 				if (addProductStock[code] > aux_verify.quantity) {
 					alert(
-						aux_verify.name + " com quantidade insuficientes! Tente novamente."
+						aux_verify.prod_name +
+							" com quantidade insuficientes! Tente novamente."
 					);
 					flag = true;
 					window.location.href = "http://localhost:3000/home";
@@ -71,9 +72,9 @@ const Gondola_Entry = () => {
 				// try {
 				// 	const response = await
 				// } catch (error) {
-					
+
 				// }
-			
+
 				alert("OS PRODUTOS FORAM ENVIADOS COM SUCESSO!");
 				window.location.href = "http://localhost:3000/home";
 			}
@@ -111,12 +112,12 @@ const Gondola_Entry = () => {
 					<table className="table-father">
 						<tbody>
 							{products.map((product) => (
-								<tr key={product.id}>
-									<td className="table-name">{product.name}</td>
-									<td className="table-quantity">{product.quantity}</td>
+								<tr key={product.prod_id}>
+									<td className="table-name">{product.prod_name}</td>
+									<td className="table-quantity">{product.prod_qnt}</td>
 									<td className="table-input">
 										<input
-											id={product.id}
+											id={product.prod_id}
 											className="input-number"
 											name="quantity"
 											type="number"

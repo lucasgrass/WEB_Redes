@@ -32,7 +32,9 @@ const Gondola_Exit = () => {
 				let aux_verify = products.find((x) => x.id == code);
 
 				if (addProductStock[code] > aux_verify.quantity) {
-					alert("Produtos com quantidade insuficientes! Tente novamente.");
+					alert(
+						aux_verify.name + " com quantidade insuficientes! Tente novamente."
+					);
 					flag = true;
 					window.location.href = "http://localhost:3000/home";
 				}
