@@ -23,17 +23,11 @@ const Gondola_Entry = () => {
 
 		const id = event.target.getAttribute("id");
 		const quantity = event.target.value;
-		// var bool = quantity.includes(".");
-		// var bool_aux = quantity.includes(",");
 
-		// if (bool == false && bool_aux == false) {
 		const remove = { ...addProductStock };
 		remove[id] = quantity;
 
 		setAddProductStock(remove);
-		// } else {
-		// 	aux = true;
-		// }
 	};
 
 	const addQuantity = (event) => {
@@ -48,7 +42,9 @@ const Gondola_Entry = () => {
 				let aux_verify = products.find((x) => x.id == code);
 
 				if (addProductStock[code] > aux_verify.quantity) {
-					alert("Produtos com quantidade insuficientes! Tente novamente.");
+					alert(
+						aux_verify.name + " com quantidade insuficientes! Tente novamente."
+					);
 					flag = true;
 					window.location.href = "http://localhost:3000/home";
 				}
@@ -60,8 +56,11 @@ const Gondola_Entry = () => {
 					prod_id: parseInt(code),
 					prod_qnt: parseInt(addProductStock[code]),
 				}));
-				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
-				const json_format = JSON.stringify(json, null, 4);
+				// Feito pelo DIAS E VITOR CONTI CEO do JavaScript e dono da MBlabs
+				var dict = {};
+				dict["items"] = json;
+				const json_format = JSON.stringify(dict, null, 4);
+				console.log(json_format);
 				alert("OS PRODUTOS FORAM ENVIADOS COM SUCESSO!");
 				window.location.href = "http://localhost:3000/home";
 			}
