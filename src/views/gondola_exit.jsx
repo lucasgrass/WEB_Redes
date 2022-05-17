@@ -1,12 +1,29 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import gondola from "../mock-gondola.json";
+import api from "../api/axios";
 
 var flag = false;
 
 const Gondola_Exit = () => {
 	const [products, setProducts] = useState(gondola);
 	const [addProductStock, setAddProductStock] = useState();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await api.get("/shelf");
+				console.log(response)
+				setProducts(response.data.Products);
+			} catch (error) {
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	const getQuantity = (event) => {
 		event.preventDefault();
