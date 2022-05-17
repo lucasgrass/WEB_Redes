@@ -13,7 +13,6 @@ const Gondola_Exit = () => {
 		const fetchData = async () => {
 			try {
 				const response = await api.get("/shelf");
-				console.log(response);
 				setProducts(response.data.Products);
 			} catch (error) {
 				console.log(error.response.data);
