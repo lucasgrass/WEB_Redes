@@ -4,13 +4,12 @@ import gondola from "../mock-gondola.json";
 import api from "../api/axios";
 
 const Gondola_Consult = () => {
-	const [products, setProduct] = useState(gondola);
+	const [products, setProducts] = useState(gondola);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await api.get("/shelf");
-				console.log(response);
 				setProducts(response.data.Products);
 			} catch (error) {
 				console.log(error.response.data);
