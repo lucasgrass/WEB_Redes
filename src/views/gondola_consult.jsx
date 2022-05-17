@@ -1,9 +1,26 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import gondola from "../mock-gondola.json";
+import api from "../api/axios";
 
 const Gondola_Consult = () => {
 	const [products, setProduct] = useState(gondola);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await api.get("/shelf");
+				console.log(response);
+				setProducts(response.data.Products);
+			} catch (error) {
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	return (
 		<div className="flex-container">
@@ -30,9 +47,9 @@ const Gondola_Consult = () => {
 					<table className="table-father">
 						<tbody>
 							{products.map((product) => (
-								<tr key={product.id}>
-									<td className="table-name">{product.name}</td>
-									<td className="table-quantity-1">{product.quantity}</td>
+								<tr key={product.prod_id}>
+									<td className="table-name">{product.prod_name}</td>
+									<td className="table-quantity-1">{product.prod_qnt}</td>
 								</tr>
 							))}
 						</tbody>
