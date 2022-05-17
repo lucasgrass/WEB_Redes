@@ -13,7 +13,7 @@ const Gondola_Exit = () => {
 		const fetchData = async () => {
 			try {
 				const response = await api.get("/shelf");
-				console.log(response)
+				console.log(response);
 				setProducts(response.data.Products);
 			} catch (error) {
 				console.log(error.response.data);
@@ -46,11 +46,12 @@ const Gondola_Exit = () => {
 			);
 		} else {
 			Object.keys(addProductStock).map((code) => {
-				let aux_verify = products.find((x) => x.id == code);
+				let aux_verify = products.find((x) => x.prod_id == code);
 
-				if (addProductStock[code] > aux_verify.quantity) {
+				if (addProductStock[code] > aux_verify.prod_qnt) {
 					alert(
-						aux_verify.name + " com quantidade insuficientes! Tente novamente."
+						aux_verify.prod_name +
+							" com quantidade insuficientes! Tente novamente."
 					);
 					flag = true;
 					window.location.href = "http://localhost:3000/home";
@@ -106,12 +107,12 @@ const Gondola_Exit = () => {
 					<table className="table-father">
 						<tbody>
 							{products.map((product) => (
-								<tr key={product.id}>
-									<td className="table-name">{product.name}</td>
-									<td className="table-quantity">{product.quantity}</td>
+								<tr key={product.prod_id}>
+									<td className="table-name">{product.prod_name}</td>
+									<td className="table-quantity">{product.prod_qnt}</td>
 									<td className="table-input">
 										<input
-											id={product.id}
+											id={product.prod_id}
 											className="input-number"
 											name="quantity"
 											type="number"
