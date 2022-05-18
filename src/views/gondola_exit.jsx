@@ -36,7 +36,7 @@ const Gondola_Exit = () => {
 		setAddProductStock(remove);
 	};
 
-	const addQuantity = (event) => {
+	const addQuantity = async (event) => {
 		event.preventDefault();
 
 		if (addProductStock == undefined) {
@@ -47,7 +47,7 @@ const Gondola_Exit = () => {
 			Object.keys(addProductStock).map((code) => {
 				let aux_verify = products.find((x) => x.prod_id == code);
 
-				if (addProductStock[code] > aux_verify.prod_qnt) {
+				if (addProductStock[code] > aux_verify.shelve_qnt) {
 					alert(
 						aux_verify.prod_name +
 							" com quantidade insuficientes! Tente novamente."
@@ -58,16 +58,20 @@ const Gondola_Exit = () => {
 			});
 
 			if (!flag) {
-				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
 				const json = Object.keys(addProductStock).map((code) => ({
 					prod_id: parseInt(code),
 					prod_qnt: parseInt(addProductStock[code]),
 				}));
-				// Feito pelo VITOR CONTI CEO do JavaScript e dono da MBlabs
 				var dict = {};
 				dict["items"] = json;
-				const json_format = JSON.stringify(dict, null, 4);
-				console.log(json_format);
+				console.log(JSON.stringify(dict))
+				
+				try {
+					const response = await api.post('/remove_shelf', dict)
+				} catch (error) {
+					console.log(`Error: ${error.message}`)
+				}
+
 				alert("OS PRODUTOS FORAM RETIRADOS COM SUCESSO!");
 				window.location.href = "http://localhost:3000/home";
 			}
@@ -108,7 +112,7 @@ const Gondola_Exit = () => {
 							{products.map((product) => (
 								<tr key={product.prod_id}>
 									<td className="table-name">{product.prod_name}</td>
-									<td className="table-quantity">{product.prod_qnt}</td>
+									<td className="table-quantity">{product.shelve_qnt}</td>
 									<td className="table-input">
 										<input
 											id={product.prod_id}

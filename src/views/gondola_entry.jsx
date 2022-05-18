@@ -48,7 +48,7 @@ const Gondola_Entry = () => {
 			Object.keys(addProductStock).map((code) => {
 				let aux_verify = products.find((x) => x.prod_id == code);
 
-				if (addProductStock[code] > aux_verify.prod_qnt) {
+				if (addProductStock[code] > aux_verify.stock_qnt) {
 					alert(
 						aux_verify.prod_name +
 							" com quantidade insuficientes! Tente novamente."
@@ -61,14 +61,13 @@ const Gondola_Entry = () => {
 			if (!flag) {
 				const json = Object.keys(addProductStock).map((code) => ({
 					prod_id: parseInt(code),
-					prod_qnt: parseInt(addProductStock[code]),
+					prod_qnt: parseInt(addProductStock[code])
 				}));
 				var dict = {};
 				dict["items"] = json;
-				const json_format = JSON.stringify(dict, null, 4);
 
 				try {
-					const response = await api.post('insert_shelf', json_format)
+					const response = await api.post('/insert_shelf', dict)
 					console.log(response)
 				} catch (error) {
 					console.log(`Error: ${error.message}`)
@@ -113,7 +112,7 @@ const Gondola_Entry = () => {
 							{products.map((product) => (
 								<tr key={product.prod_id}>
 									<td className="table-name">{product.prod_name}</td>
-									<td className="table-quantity">{product.prod_qnt}</td>
+									<td className="table-quantity">{product.stock_qnt}</td>
 									<td className="table-input">
 										<input
 											id={product.prod_id}

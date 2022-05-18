@@ -48,7 +48,7 @@ const Gondola_Consult = () => {
 							{products.map((product) => (
 								<tr key={product.prod_id}>
 									<td className="table-name">{product.prod_name}</td>
-									<td className="table-quantity-1">{product.prod_qnt}</td>
+									<td className="table-quantity-1">{product.shelve_qnt}</td>
 								</tr>
 							))}
 						</tbody>
